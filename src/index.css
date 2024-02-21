@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "SpaceGroteskt";
+  src: url(SpaceGroteskt.ttf) format("truetype");
+}
+
+body {
+  margin: 0;
+}
