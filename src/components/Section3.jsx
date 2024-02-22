@@ -1,8 +1,6 @@
 import { ProgressBar } from "react-bootstrap";
 
 function Section3() {
-  const now = 60; // Change this value to update the progress
-
   return (
     <div
       className="flex flex-col-reverse md:flex-row  max-w-[1440px] gap-10 mx-auto items-center"
@@ -14,7 +12,14 @@ function Section3() {
             Our team
           </h5>
           {/* Render ProgressBar component here */}
-          <ProgressBar now={now} label={`${now}%`} />
+
+          <ProgressBar className="h-[20px] w-[200px]">
+            <ProgressBar
+              now={50}
+              label={`50%`}
+              className=" colo bg-[#9218e4]"
+            />
+          </ProgressBar>
           <h5 className="text-[#333333] text-xl font-[SpaceGroteskt] font-bold">
             With years of experience within the team, our goal is to explore and
             share innovative ideas that envision better futures, fostering
