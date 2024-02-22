@@ -1,61 +1,97 @@
-import Placeholder from "../assets/partner_s.svg";
-import VipaConnect from "../assets/vipa_connect.png";
-import b_real from "../assets/b_real.png";
-import manuel_levi from "../assets/manuel_levi.png";
-import portugal_manual from "../assets/portugal_manual.png";
-import the_inventors from "../assets/the_inventors.png";
-import giga_lab from "../assets/giga_lab.png";
-import mimic_productions from "../assets/mimic_productions.png";
-
-function Partners({ img, name, link }) {
-  return (
-    <div className="flex flex-col gap-5 items-center basis-1/4 md:basis-1/6">
-      <a href={link} target="_blank" rel="noopener noreferrer" className="flex flex-col gap-5 items-center basis-1/4 md:basis-1/6">
-
-      <img
-        className="h-32 object-contain md:block hover:scale-125 transition duration-500 cursor-pointer"
-        src={img}
-        alt={name}
-      />
-      </a>
-    </div>
-  );
-}
+import React, { useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
 
 function Section6() {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleDivClick = () => {
+    // Toggle the state back to false
+    setIsClicked(!isClicked);
+  };
+
   return (
-    <div
-      id="partners"
-      className="max-w-[1440px] mx-auto  px-5 md:px-10 lg:px-40 flex flex-col pb-14 gap-20 z-20 relative font-[SpaceGroteskt] pt-10"
-    >
-      <div className="gap-10 z-20 relative">
-        <h2 className="text-[#333333] text-3xl md:text-4xl font-bold uppercase text-center">
-          Partners we work with
-        </h2>
-        <div className="flex flex-row flex-wrap md:hidden md:flex-nowrap mt-10 md:mt-20 w-full justify-between gap-5">
-
-          <Partners link={"https://b-real.uno/"} img={b_real} name={"b.real"}/>
-          <Partners link={"https://giga-lab.framer.ai/"} img={Placeholder} name={"Giga Lab"}/>
-          <Partners link={"https://manuellevi.art/work/"} img={manuel_levi} name={"Manuel Levi"}/>
-          <Partners link={"https://www.mimicproductions.com/"} img={mimic_productions} name={"Mimic Productions"}/>
-          <Partners link={"https://www.portugalmanual.com/"} img={portugal_manual} name={"Portugal Manual"}/>
-          <Partners link={"https://theinventors.io/"} img={the_inventors} name={"The Inventors"}/>
-          <Partners link={"https://www.vipaconnect.com/"} img={VipaConnect} name={"Vipa Connect"}/>
-
-
+    <div className="max-w-[1440px] mx-auto px-5 md:px-10 flex flex-col z-20 relative font-[SpaceGroteskt]">
+      <div className="grid md:grid-cols-2 gap-10">
+        <div>
+          <h5 className="text-[#333333] uppercase font-bold text-xl pt-10 md:pb-4">
+            Education
+          </h5>
+          <div className="flex flex-col border-l-2 gap-5 z-40 pb-6 md:pb-10 relative">
+            {/* Education content */}
+            <div className="flex flex-col md:flex-col gap-5 mb-5">
+              <div className="flex flex-col gap-2 basis-1/3 border-b-2 pb-2">
+                <div className="flex gap-6">
+                  <span>2019-2023</span>
+                  <span>De Montfort University</span>
+                </div>
+                <label className="text-black font-semibold px-5" htmlFor="name">
+                  Software engineering
+                </label>
+                <span className="px-5">I studied here</span>
+              </div>
+              <div className="flex flex-col gap-2 basis-1/3">
+                <div className="flex gap-6">
+                  <span>2016-2019</span>
+                  <span>Escola Profissional Cristovao Colombo</span>
+                </div>
+                <label className="text-black font-semibold px-5" htmlFor="name">
+                  Software engineering
+                </label>
+                <span className="px-5">I studied here</span>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div className="flex flex-row  flex-wrap md:flex-nowrap mt-10 md:mt-20 w-full justify-between gap-5 hidden md:flex">
-          <Partners link={"https://b-real.uno/"} img={b_real} name={"b.real"}/>
-          <Partners link={"https://giga-lab.framer.ai/"} img={Placeholder} name={"Giga Lab"}/>
-          <Partners link={"https://manuellevi.art/work/"} img={manuel_levi} name={"Manuel Levi"}/>
-          <Partners link={"https://www.mimicproductions.com/"} img={mimic_productions} name={"Mimic Productions"}/>
-          <Partners link={"https://www.portugalmanual.com/"} img={portugal_manual} name={"Portugal Manual"}/>
-          <Partners link={"https://theinventors.io/"} img={the_inventors} name={"The Inventors"}/>
-          <Partners link={"https://www.vipaconnect.com/"} img={VipaConnect} name={"Vipa Connect"}/>
-
+        <div>
+          <h5 className="text-[#333333] uppercase font-bold text-xl pt-10 md:pb-4">
+            Experience
+          </h5>
+          <div className="flex flex-col border-l-2 gap-5 z-40 pb-6 md:pb-10 relative">
+            {/* Experience content */}
+            <div className="flex flex-col md:flex-col gap-5 mb-5">
+              <div className="flex flex-col gap-2 basis-1/3 border-b-2 pb-2">
+                <div className="flex gap-6">
+                  <span>Nov. 2023-Present</span>
+                  <span>Vipa Connect</span>
+                </div>
+                <label className="text-black font-semibold px-5" htmlFor="name">
+                  Full Stack Developer
+                </label>
+                <span className="px-5">I worked here</span>
+              </div>
+              <div className="flex flex-col gap-2 basis-1/3 border-b-2 pb-2">
+                <div className="flex gap-6">
+                  <span>Jan. 2019-Mar. 2019</span>
+                  <span>Press Power</span>
+                </div>
+                <label className="text-black font-semibold px-5" htmlFor="name">
+                  Software Developer Intern
+                </label>
+                <span className="px-5">I interned here here</span>
+              </div>
+              <div className="flex flex-col gap-2 basis-1/3 pb-2">
+                <div className="flex gap-6">
+                  <span>Jun. 2018-Jul. 2018</span>
+                  <span>Press Power</span>
+                </div>
+                <label className="text-black font-semibold px-5" htmlFor="name">
+                  Software Developer Intern
+                </label>
+                <span className="px-5">I interned here</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      {isClicked && (
+        <div className="absolute inset-0 bg-[#333] text-white flex flex-col items-center justify-center z-50">
+          <CloseIcon
+            onClick={handleDivClick}
+            className="absolute top-4 right-4 cursor-pointer"
+          />
+          <h1 className="text-3xl">Thank you for subscribing!</h1>
+        </div>
+      )}
     </div>
   );
 }
