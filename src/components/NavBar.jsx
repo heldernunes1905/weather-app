@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function Anchor({ anchor, text, open, setOpen }) {
   return (
     <Link
-      className="text-xl font-bold text-[#333333] uppercase hover:underline font-[SpaceGroteskt]"
+      className="text-md font-semibold text-[#fff] hover:underline font-[SpaceGroteskt] "
       to={anchor}
       onClick={() => {
         if (open) setOpen(false);
@@ -35,7 +35,7 @@ function NavBar() {
 
   return (
     <>
-      <div className="fixed w-screen hidden top-0 right-0 bg-white z-[400] md:flex flex-col p-4 overflow-hidden">
+      <div className="fixed w-screen hidden top-0 right-0 bg-gray-500 bg-opacity-50 shadow-lg backdrop-blur-sm z-[400] md:flex flex-col py-3 overflow-hidden">
         <div className="flex flex-row gap-10 flex-grow justify-center pl-10">
           <Anchor
             open={open}

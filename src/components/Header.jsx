@@ -34,19 +34,37 @@ function Header() {
   }, []);
   return (
     <div className="relative max-h-screen" id="home">
-      <video
+      <img
         className="h-[100vh] max-h-[1080px] md:origin-top md:h-100 object-cover w-full"
-        src={"/background_header_video.mp4"}
-        autoPlay
-        loop
-        playsInline
-        muted
-        alt="Video de background"
-      ></video>
+        src={"/background_header_image.jpg"}
+        alt="Imagem de background"
+      ></img>
 
-
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] max-w-[320px] ">
-        <Logo className="h-full" alt="Imagem de logo" />
+      <div className="absolute text-center rounded-md bg-gray-500 bg-opacity-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-[50%] shadow-lg backdrop-blur-sm">
+        <p className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl">
+          I'm me
+        </p>
+        <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">Who I am</p>
+        <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">What I like</p>
+        <div className=" px-10 flex flex-row gap-3 justify-center text-stone-200">
+          <p className="underline underline-offset-1">Git</p>
+          <p className="underline underline-offset-1">Linked</p>
+          <p className="underline underline-offset-1">Face</p>
+        </div>
+        <div className=" px-10 flex flex-row gap-3 justify-center py-3">
+          <button
+            className="px-3 rounded-lg  border-2 text-[#333333] font-bold text-md hover:scale-110 transition duration-500 cursor-pointer"
+            type="submit"
+          >
+            Resume
+          </button>
+          <button
+            className="px-3 rounded-lg  border-2 text-[#333333] font-bold text-md hover:scale-110 transition duration-500 cursor-pointer"
+            type="submit"
+          >
+            Contact
+          </button>
+        </div>
       </div>
 
       <div className="absolute left-1/2  bottom-[3%] -translate-x-1/2 -translate-y-1/">
@@ -62,8 +80,6 @@ function Header() {
           }
         />
       </div>
-
-      
     </div>
   );
 }
