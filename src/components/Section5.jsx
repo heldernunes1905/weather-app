@@ -16,7 +16,7 @@ const newsData = [
 
 ];
 
-function NewsArticles({ image, link, title, source, date }) {
+function NewsArticles({ image, link, title}) {
   return (
     <div className="relative flex flex-col pb-20 md:pr-10 basis-1/3 justify-center mt-[-1rem]">
       <div className="relative flex flex-col h-full ">
@@ -30,12 +30,7 @@ function NewsArticles({ image, link, title, source, date }) {
           
           <h3 >{title}</h3>
         </a>
-        <h5 className="md:block text-[#333333] weight-400 uppercase font-bold">
-          {source}
-        </h5>
-        <h5 className="md:block text-[#333333] weight-400 ">
-          {date}
-        </h5>
+        
       </div>
     </div>
   );
@@ -45,12 +40,13 @@ function Section5() {
   return (
     <div
       id="news"
-      className="max-w-[1440px] mx-auto pt-20 md:py-30 flex flex-col  gap-10 z-20 font-[SpaceGroteskt] "
+      className="max-w-[1440px] mx-auto px-5 md:px-10 pt-20 md:py-30 flex flex-col  gap-10 z-20 font-[SpaceGroteskt] "
+      
     >
-      <h5 className="text-[#333333] uppercase font-bold text-3xl font-[SpaceGroteskt] pl-5">
-        news
+      <h5 className="text-[#333333] uppercase font-bold text-3xl font-[SpaceGroteskt] ">
+        projects
       </h5>
-      <div className="gap-10 z-20 px-5 relative ">
+      <div className="gap-10 z-20 relative ">
         <div className="flex flex-col flex-wrap md:hidden md:flex-nowrap mt-10 md:mt-20 w-full justify-around gap-5 border-b-2 border-[#33333]">
           {newsData.map((article, index) => (
             <NewsArticles key={index} {...article} />

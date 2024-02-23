@@ -11,11 +11,11 @@ function Section7() {
 
   return (
     <div className="max-w-[1440px] mx-auto px-5 md:px-10 flex flex-col z-20 relative font-[SpaceGroteskt]">
-      <h5 className="text-[#333333] uppercase font-bold text-xl pl-5 pt-10 md:pb-4">
+      <h5 className="text-[#333333] uppercase font-bold text-xl  pt-10 md:pb-4">
         Contact me
       </h5>
       <div className="grid md:grid-cols-2 gap-10 ">
-        <div className="flex flex-col gap-5 z-40 pb-6 px-6 md:pb-10 relative">
+        <div className="flex flex-col gap-5 z-40 pb-6  md:pb-10 relative">
           <div className="flex flex-col md:flex-col gap-5 mb-5">
             <div className="flex flex-col gap-2 basis-1/3">
               <label className="text-white font-semibold" htmlFor="name">
@@ -60,7 +60,7 @@ function Section7() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-5 z-40 pb-6 px-6 md:pb-10 relative">
+        <div className="flex flex-col gap-5 z-40 pb-6  md:pb-10 relative">
           <div className="flex flex-col md:flex-col gap-5 mb-5">
             <div className="flex flex-col gap-2 basis-1/3 pt-8">
               <span>
