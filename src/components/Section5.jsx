@@ -39,7 +39,7 @@ function NewsArticles({ image, link, title}) {
 function Section5() {
   return (
     <div
-      id="news"
+      id="projects"
       className="max-w-[1440px] mx-auto px-5 md:px-10 pt-20 md:py-30 flex flex-col  gap-10 z-20 font-[SpaceGroteskt] "
       
     >

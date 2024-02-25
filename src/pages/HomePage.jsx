@@ -25,7 +25,7 @@ function HomePage() {
       <Header />
       <Section1 />
       <Section3 />
-      <Section5 />
+      {/*<Section5 />*/}
       <Section6 />
       <Section7 /> 
     </div>

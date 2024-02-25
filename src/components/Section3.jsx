@@ -4,7 +4,7 @@ function Section3() {
   return (
     <div
       className="max-w-[1440px] mx-auto px-5 md:px-10 flex flex-col z-20 relative font-[SpaceGroteskt]"
-      id="ourteam"
+      id="resume"
     >
       <div className="flex flex-col z-40 pb-14 pt-16 lg:pb-28">
         <div className="">

@@ -10,7 +10,9 @@ function Section6() {
   };
 
   return (
-    <div className="max-w-[1440px] mx-auto px-5 md:px-10 flex flex-col z-20 relative font-[SpaceGroteskt]">
+    <div
+      className="max-w-[1440px] mx-auto px-5 md:px-10 flex flex-col z-20 relative font-[SpaceGroteskt] "
+    >
       <div className="grid md:grid-cols-2 gap-10">
         <div>
           <h5 className="text-[#333333] uppercase font-bold text-xl pt-10 md:pb-4">

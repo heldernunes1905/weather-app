@@ -9,7 +9,7 @@ import {
 
 function Section1() {
   return (
-    <div className="flex flex-col z-20 pt-5 pb-10 relative" id="aboutus">
+    <div className="flex flex-col z-20 pt-5 pb-10 relative" id="aboutme">
       <div className="max-w-[1440px] pb-10 lg:pr-10 mx-auto flex flex-col lg:flex-row gap-10 z-20 relative justify-center ">
         <div className="flex flex-col gap-5  basis-2/5">
           <img

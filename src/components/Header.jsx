@@ -89,7 +89,7 @@ function Header() {
         <Anchor
           open={open}
           setOpen={setOpen}
-          anchor={"/#aboutus"}
+          anchor={"/#aboutme"}
           text={
             <ArrowDownwardIcon
               style={{ fontSize: "2em", color: "white" }}

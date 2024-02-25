@@ -8,7 +8,8 @@ function Section7() {
   const [nameDefault, setNameDefault] = useState();
   const [emailDefault, setEmailDefault] = useState();
   const [messageDefault, setMessageDefault] = useState();
-  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [openSuccessbar, setOpenSuccessbar] = useState(false);
+  const [openFailurebar, setopenFailurebar] = useState(false);
 
   const form = useRef();
 
@@ -28,9 +29,11 @@ function Section7() {
           setNameDefault("");
           setEmailDefault("");
           setMessageDefault("");
+          setOpenSuccessbar(true);
         },
         (error) => {
           console.log("FAILED...", error.text);
+          setopenFailurebar(true);
         }
       );
   };
@@ -53,6 +56,7 @@ function Section7() {
                   Name
                 </label>
                 <input
+                  required
                   placeholder="name"
                   id="name"
                   name="name"
@@ -67,6 +71,7 @@ function Section7() {
                   e-mail
                 </label>
                 <input
+                  required
                   placeholder="e-mail"
                   id="email"
                   type="email"
@@ -81,6 +86,7 @@ function Section7() {
                   Message
                 </label>
                 <textarea
+                  required
                   placeholder="message"
                   id="message"
                   name="message"
@@ -89,7 +95,7 @@ function Section7() {
                   className="bg-[#ebebeb] py-2 px-4 text-[#333333] placeholder-black rounded-md"
                 />
               </div>
-              <div className="flex flex-col gap-2 basis-1/4 mt-auto">
+              <div className="flex flex-col gap-2 basis-1/4 mt-auto pt-3">
                 <button
                   className="w-full min-h-[45px] border-2 text-[#333333] font-bold text-xl hover:scale-110 transition duration-500 cursor-pointer"
                   type="submit"
@@ -114,11 +120,31 @@ function Section7() {
         </div>
       </div>
       <Snackbar
-        open={openSnackbar}
-        autoHideDuration={2000} // Adjust the duration as needed
-        onClose={() => setOpenSnackbar(false)}
+        open={openSuccessbar}
+        autoHideDuration={2000}
+        onClose={() => setOpenSuccessbar(false)}
         message="Email sent successfully!"
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        sx={{
+          "& .MuiSnackbarContent-root": {
+            backgroundColor: "#4CAF50",
+            color: "white",
+          },
+        }}
+      />
+
+      <Snackbar
+        open={openFailurebar}
+        autoHideDuration={2000}
+        onClose={() => setopenFailurebar(false)}
+        message="Error sending email!"
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        sx={{
+          "& .MuiSnackbarContent-root": {
+            backgroundColor: "#e01616",
+            color: "white",
+          },
+        }}
       />
     </div>
   );
