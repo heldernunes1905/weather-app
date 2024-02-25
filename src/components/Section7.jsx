@@ -47,8 +47,8 @@ function Section7() {
       <h5 className="text-[#333333] uppercase font-bold text-xl  pt-10 md:pb-4">
         Contact me
       </h5>
-      <div className="grid md:grid-cols-2 gap-10 ">
-        <div className="flex flex-col gap-5 z-40 pb-6  md:pb-10 relative">
+      <div className="grid md:grid-cols-2 md:gap-10 ">
+        <div className="flex flex-col gap-5 z-40  md:pb-10 relative">
           <div className="flex flex-col md:flex-col gap-5 mb-5">
             <form ref={form} onSubmit={sendEmail}>
               <div className="flex flex-col gap-2 basis-1/3">
@@ -107,9 +107,9 @@ function Section7() {
             </form>
           </div>
         </div>
-        <div className="flex flex-col gap-5 z-40 pb-6  md:pb-10 relative">
+        <div className="flex flex-col gap-5 z-40 md:pb-6  relative">
           <div className="flex flex-col md:flex-col gap-5 mb-5">
-            <div className="flex flex-col gap-2 basis-1/3 pt-8">
+            <div className="flex flex-col gap-2 basis-1/3 md:pt-8">
               <span>
                 Have a project for me? Any questions about something I've built?
                 I'd love to hear from you, give me a shout by email or by using
