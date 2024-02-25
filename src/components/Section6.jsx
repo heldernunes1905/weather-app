@@ -83,15 +83,6 @@ function Section6() {
           </div>
         </div>
       </div>
-      {isClicked && (
-        <div className="absolute inset-0 bg-[#333] text-white flex flex-col items-center justify-center z-50">
-          <CloseIcon
-            onClick={handleDivClick}
-            className="absolute top-4 right-4 cursor-pointer"
-          />
-          <h1 className="text-3xl">Thank you for subscribing!</h1>
-        </div>
-      )}
     </div>
   );
 }

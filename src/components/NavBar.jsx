@@ -3,6 +3,8 @@ import Hamburger from "../assets/hamburguermenu.svg?react";
 import { useEffect } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import LanguageSelector from "./LanguageSelector";
 
 function Anchor({ anchor, text, open, setOpen }) {
   return (
@@ -24,6 +26,7 @@ function Anchor({ anchor, text, open, setOpen }) {
 
 function NavBar() {
   const [open, setOpen] = useState();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (open) {
@@ -35,13 +38,21 @@ function NavBar() {
 
   return (
     <>
-      <div className="fixed w-screen hidden top-0 right-0 bg-gray-500 bg-opacity-50 shadow-lg backdrop-blur-sm z-[400] md:flex flex-col py-3 overflow-hidden">
-        <div className="flex flex-row gap-10 flex-grow justify-center pl-10">
+      <div className="fixed w-screen hidden top-0 right-0 bg-neutral-900/50 bg-opacity-50 shadow-lg backdrop-blur-sm z-[400] md:flex flex-col py-3 ">
+        <div className="absolute left-0 pl-10 text-xl z-[400]">
+          <Anchor
+            open={open}
+            setOpen={setOpen}
+            anchor={"/#home"}
+            text={"Helder Nunes"}
+          />
+        </div>
+        <div className="flex flex-row gap-10  justify-end pr-10">
           <Anchor
             open={open}
             setOpen={setOpen}
             anchor={"/#aboutus"}
-            text={"About Us"}
+            text={t("hello")}
           />
           <Anchor
             open={open}
@@ -73,6 +84,7 @@ function NavBar() {
             anchor={"/#contacts"}
             text={"Contacts"}
           />
+          <LanguageSelector />
         </div>
       </div>
 

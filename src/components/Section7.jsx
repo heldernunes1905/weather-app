@@ -1,9 +1,39 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import emailjs from "emailjs-com";
+import { Snackbar } from "@mui/material";
 
 function Section7() {
   const [isClicked, setIsClicked] = useState(false);
+  const [nameDefault, setNameDefault] = useState();
+  const [emailDefault, setEmailDefault] = useState();
+  const [messageDefault, setMessageDefault] = useState();
+  const [openSnackbar, setOpenSnackbar] = useState(false);
 
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_42rocir",
+        "template_l48i8oi",
+        form.current,
+        "w5jFYcyHUBCqmk6Q8"
+      )
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          setNameDefault("");
+          setEmailDefault("");
+          setMessageDefault("");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
   const handleDivClick = () => {
     // Toggle the state back to false
     setIsClicked(!isClicked);
@@ -17,47 +47,58 @@ function Section7() {
       <div className="grid md:grid-cols-2 gap-10 ">
         <div className="flex flex-col gap-5 z-40 pb-6  md:pb-10 relative">
           <div className="flex flex-col md:flex-col gap-5 mb-5">
-            <div className="flex flex-col gap-2 basis-1/3">
-              <label className="text-white font-semibold" htmlFor="name">
-                Name
-              </label>
-              <input
-                placeholder="name"
-                id="name"
-                type="text"
-                className="bg-[#ebebeb] py-2 px-4 text-[#333333] placeholder-black rounded-md"
-              />
-            </div>
-            <div className="flex flex-col gap-2 basis-1/3">
-              <label className="text-white font-semibold" htmlFor="email">
-                e-mail
-              </label>
-              <input
-                placeholder="e-mail"
-                id="email"
-                type="email"
-                className="bg-[#ebebeb] py-2 px-4 text-[#333333] placeholder-black rounded-md"
-              />
-            </div>
-            <div className="flex flex-col gap-2 basis-1/3">
-              <label className="text-white font-semibold" htmlFor="name">
-                Message
-              </label>
-              <textarea
-                placeholder="message"
-                id="message"
-                className="bg-[#ebebeb] py-2 px-4 text-[#333333] placeholder-black rounded-md"
-              />
-            </div>
-            <div className="flex flex-col gap-2 basis-1/4 mt-auto">
-              <button
-                className="w-full min-h-[45px] border-2 text-[#333333] font-bold text-xl hover:scale-110 transition duration-500 cursor-pointer"
-                type="submit"
-                onClick={() => setIsClicked(!isClicked)}
-              >
-                SUBSCRIBE
-              </button>
-            </div>
+            <form ref={form} onSubmit={sendEmail}>
+              <div className="flex flex-col gap-2 basis-1/3">
+                <label className="text-white font-semibold" htmlFor="name">
+                  Name
+                </label>
+                <input
+                  placeholder="name"
+                  id="name"
+                  name="name"
+                  type="text"
+                  value={nameDefault}
+                  onChange={(e) => setNameDefault(e.target.value)}
+                  className="bg-[#ebebeb] py-2 px-4 text-[#333333] placeholder-black rounded-md"
+                />
+              </div>
+              <div className="flex flex-col gap-2 basis-1/3">
+                <label className="text-white font-semibold" htmlFor="email">
+                  e-mail
+                </label>
+                <input
+                  placeholder="e-mail"
+                  id="email"
+                  type="email"
+                  name="email"
+                  value={emailDefault}
+                  onChange={(e) => setEmailDefault(e.target.value)}
+                  className="bg-[#ebebeb] py-2 px-4 text-[#333333] placeholder-black rounded-md"
+                />
+              </div>
+              <div className="flex flex-col gap-2 basis-1/3">
+                <label className="text-white font-semibold" htmlFor="name">
+                  Message
+                </label>
+                <textarea
+                  placeholder="message"
+                  id="message"
+                  name="message"
+                  value={messageDefault}
+                  onChange={(e) => setMessageDefault(e.target.value)}
+                  className="bg-[#ebebeb] py-2 px-4 text-[#333333] placeholder-black rounded-md"
+                />
+              </div>
+              <div className="flex flex-col gap-2 basis-1/4 mt-auto">
+                <button
+                  className="w-full min-h-[45px] border-2 text-[#333333] font-bold text-xl hover:scale-110 transition duration-500 cursor-pointer"
+                  type="submit"
+                  value="Send"
+                >
+                  SUBSCRIBE
+                </button>
+              </div>
+            </form>
           </div>
         </div>
         <div className="flex flex-col gap-5 z-40 pb-6  md:pb-10 relative">
@@ -72,15 +113,13 @@ function Section7() {
           </div>
         </div>
       </div>
-      {isClicked && (
-        <div className="absolute inset-0 bg-[#333] text-white flex flex-col items-center justify-center z-50">
-          <CloseIcon
-            onClick={handleDivClick}
-            className="absolute top-4 right-4 cursor-pointer"
-          />
-          <h1 className="text-3xl">Thank you for subscribing!</h1>
-        </div>
-      )}
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={2000} // Adjust the duration as needed
+        onClose={() => setOpenSnackbar(false)}
+        message="Email sent successfully!"
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      />
     </div>
   );
 }

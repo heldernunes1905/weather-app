@@ -3,6 +3,7 @@ import Lettering from "../assets/lettering.svg?react";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Anchor({ anchor, text, open, setOpen }) {
   return (
@@ -24,6 +25,7 @@ function Anchor({ anchor, text, open, setOpen }) {
 
 function Header() {
   const [open, setOpen] = useState();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (open) {
@@ -40,12 +42,16 @@ function Header() {
         alt="Imagem de background"
       ></img>
 
-      <div className="absolute text-center rounded-md bg-gray-500 bg-opacity-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-[50%] shadow-lg backdrop-blur-sm">
+      <div className="absolute text-center rounded-md bg-gray-800/20 bg-opacity-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-[50%] shadow-lg backdrop-blur-sm">
         <p className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl">
           I'm me
         </p>
-        <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">Who I am</p>
-        <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">What I like</p>
+        <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+          {t("hello")}
+        </p>
+        <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+          And me only
+        </p>
         <div className=" px-10 flex flex-row gap-3 justify-center text-stone-200">
           <p className="underline underline-offset-1">Git</p>
           <p className="underline underline-offset-1">Linked</p>
@@ -53,16 +59,28 @@ function Header() {
         </div>
         <div className=" px-10 flex flex-row gap-3 justify-center py-3">
           <button
-            className="px-3 rounded-lg  border-2 text-[#333333] font-bold text-md hover:scale-110 transition duration-500 cursor-pointer"
+            className="px-3 rounded-lg  border-2 text-[#fff] font-bold text-md hover:scale-110 transition duration-500 cursor-pointer"
             type="submit"
           >
             Resume
           </button>
           <button
-            className="px-3 rounded-lg  border-2 text-[#333333] font-bold text-md hover:scale-110 transition duration-500 cursor-pointer"
+            className="px-3 rounded-lg  border-2 text-[#fff] font-bold text-md hover:scale-110 transition duration-500 cursor-pointer"
             type="submit"
           >
-            Contact
+            <Link
+              className="text-[#fff]  hover:underline font-[SpaceGroteskt]"
+              to={"contacts"}
+              onClick={() => {
+                if (open) setOpen(false);
+
+                document
+                  .getElementById("contacts"?.replace("/#", ""))
+                  .scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              {"Contacts"}
+            </Link>
           </button>
         </div>
       </div>
