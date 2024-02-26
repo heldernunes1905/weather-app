@@ -42,15 +42,15 @@ function Header() {
         alt="Imagem de background"
       ></img>
 
-      <div className="absolute text-center rounded-md bg-gray-800/20 bg-opacity-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-[50%] shadow-lg backdrop-blur-sm">
-        <p className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl">
-          I'm me
+      <div className="absolute text-center rounded-md  bg-gray-800/20 bg-opacity-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-[50%] shadow-lg backdrop-blur-sm">
+        <p className="text-4xl font-bold text-stone-100 sm:text-5xl lg:text-7xl">
+          {t("header.name")} me
         </p>
         <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-          {t("hello")}
+          {t("header.description")}
         </p>
         <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-          And me only
+          {t("header.currentdoing")}
         </p>
         <div className=" px-10 flex flex-row gap-3 justify-center text-stone-200">
           <p className="underline underline-offset-1">Git</p>
@@ -62,7 +62,7 @@ function Header() {
             className="px-3 rounded-lg  border-2 text-[#fff] font-bold text-md hover:scale-110 transition duration-500 cursor-pointer"
             type="submit"
           >
-            Resume
+            {t("header.resume")}
           </button>
           <button
             className="px-3 rounded-lg  border-2 text-[#fff] font-bold text-md hover:scale-110 transition duration-500 cursor-pointer"
@@ -79,7 +79,7 @@ function Header() {
                   .scrollIntoView({ behavior: "smooth" });
               }}
             >
-              {"Contacts"}
+              {t("header.contacts")}
             </Link>
           </button>
         </div>

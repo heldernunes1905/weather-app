@@ -1,7 +1,11 @@
+import { useTranslation } from "react-i18next";
 import DegradeTriangle from "../assets/degrade_triangle.png";
 
 function Section4() {
+  const { t } = useTranslation();
+
   return (
+    
     <div className="flex flex-col z-20 relative pt-7">
       <div className="max-w-[1440px] bg-[#0099cc] pb-7 md:pb-0  mx-auto flex flex-col-reverse md:flex-row z-20 relative items-center justify-center font-[SpaceGroteskt]">
         <div className="flex flex-col gap-5 basis-1/2">

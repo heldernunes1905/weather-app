@@ -57,13 +57,13 @@ function NavBar() {
             open={open}
             setOpen={setOpen}
             anchor={"/#aboutme"}
-            text={t("hello")}
+            text={t("aboutmetext")}
           />
           <Anchor
             open={open}
             setOpen={setOpen}
             anchor={"/#resume"}
-            text={"Skills"}
+            text={t("navbar.resume")}
           />
           {/*<Anchor
             open={open}
@@ -75,7 +75,7 @@ function NavBar() {
             open={open}
             setOpen={setOpen}
             anchor={"/#contacts"}
-            text={"Contacts"}
+            text={t("navbar.contacts")}
           />
           <LanguageSelector />
         </div>
@@ -111,13 +111,13 @@ function NavBar() {
                 open={open}
                 setOpen={setOpen}
                 anchor={"/#aboutme"}
-                text={"About Me"}
+                text={t("aboutmetext")}
               />
               <Anchor
                 open={open}
                 setOpen={setOpen}
                 anchor={"/#resume"}
-                text={"Skills"}
+                text={t("navbar.resume")}
               />
               {/*<Anchor
                 open={open}
@@ -129,7 +129,7 @@ function NavBar() {
                 open={open}
                 setOpen={setOpen}
                 anchor={"/#contacts"}
-                text={"Contacts"}
+                text={t("navbar.contacts")}
               />
               <LanguageSelectorMobile setClose={setClose} />
             </div>

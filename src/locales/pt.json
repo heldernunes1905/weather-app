@@ -1,3 +1,60 @@
 {
-    "hello": "Bonjour, le Monde!"
+  "header": {
+    "name": "This is a wonderful day!",
+    "description": "This is a wonderful day!",
+    "currentdoing": "This is a wonderful day!",
+    "resume": "This is a wonderful day!",
+    "contacts": "This is a wonderful day!"
+  },
+  "navbar": {
+      "resume": "This is a wonderful day!",
+      "contacts": "This is a wonderful day!"
+  },
+    "aboutmetext": "This is a wonderful day!",
+
+  "aboutme": {
+      "description": "This is a wonderful day!",
+      "location": "This is a wonderful day!",
+      "interests": "This is a wonderful day!",
+      "study": "This is a wonderful day!",
+      "employment": "This is a wonderful day!"
+  },
+  "skills": {
+      "spoken": "This is a wonderful day!",
+      "frontend": "This is a wonderful day!",
+      "backend": "This is a wonderful day!",
+      "techstack": "This is a wonderful day!"
+  },
+
+  "languages": {
+      "portuguese": "This is a wonderful day!",
+      "english": "This is a wonderful day!",
+      "spanish": "This is a wonderful day!"
+},
+
+  "education": {
+      "title": "This is a wonderful day!",
+      "firstcourse": "This is a wonderful day!",
+      "firstdesc": "This is a wonderful day!",
+      "secondcourse": "This is a wonderful day!",
+      "seconddesc": "This is a wonderful day!"
+  },
+
+  "experience": {
+      "title": "This is a wonderful day!",
+      "titlefirst": "This is a wonderful day!",
+      "descfirst": "This is a wonderful day!",
+      "titlesecond": "This is a wonderful day!",
+      "descsecond": "This is a wonderful day!",
+      "titlethird": "This is a wonderful day!",
+      "descthird": "This is a wonderful day!"
+  },
+
+  "contactme": {
+      "title": "This is a wonderful day!",
+      "name": "This is a wonderful day!",
+      "message": "This is a wonderful day!",
+      "sendbutton": "This is a wonderful day!",
+      "sidedesc": "Have a project for me? Any questions about something I've built?I'd love to hear from you, give me a shout by email or by using the form if you'd like to get in contact with me."
   }
+}
