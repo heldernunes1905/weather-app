@@ -4,6 +4,7 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { DownloadOutlined, FileDownloadDoneOutlined, FileDownloadOutlined } from "@mui/icons-material";
 
 function Anchor({ anchor, text, open, setOpen }) {
   return (
@@ -35,7 +36,7 @@ function Header() {
     }
   }, []);
   return (
-    <div className="relative max-h-screen" id="home">
+    <div className="relative max-h-screen font-[SpaceGroteskt]" id="home">
       <img
         className="h-[100vh] max-h-[1080px] md:origin-top md:h-100 object-cover w-full"
         src={"/background_header_image.jpg"}
@@ -59,17 +60,17 @@ function Header() {
         </div>
         <div className=" px-10 flex flex-row gap-3 justify-center py-3">
           <button
-            className="px-3 rounded-lg  border-2 text-[#fff] font-bold text-md hover:scale-110 transition duration-500 cursor-pointer"
+            className="px-3 rounded-3xl min-h-[35px] border-2 border-orange-600 text-[#fff] text-lg hover:scale-110 transition duration-500 cursor-pointer "
             type="submit"
           >
-            {t("header.resume")}
+            {t("header.resume")} <FileDownloadOutlined />
           </button>
           <button
-            className="px-3 rounded-lg  border-2 text-[#fff] font-bold text-md hover:scale-110 transition duration-500 cursor-pointer"
+            className="px-3 rounded-3xl min-h-[35px] border-2 text-[#fff] text-lg hover:scale-110 transition duration-500 cursor-pointer"
             type="submit"
           >
             <Link
-              className="text-[#fff]  hover:underline font-[SpaceGroteskt]"
+              className=""
               to={"contacts"}
               onClick={() => {
                 if (open) setOpen(false);

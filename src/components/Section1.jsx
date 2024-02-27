@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 function Section1() {
   const { t } = useTranslation();
   return (
-    <div className="bg-neutral-800  text-neutral-300">
+    <div className="bg-neutral-800  text-neutral-300 font-[SpaceGroteskt]">
       <div className="flex flex-col z-20 pt-5 pb-10 relative" id="aboutme">
         <div className="max-w-[1440px] pb-10 lg:pr-10 mx-auto flex flex-col lg:flex-row gap-10 z-20 relative justify-center ">
           <div className="flex flex-col gap-5  basis-2/5">

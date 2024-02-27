@@ -43,7 +43,7 @@ function NavBar() {
 
   return (
     <>
-      <div className="fixed w-screen hidden top-0 right-0 bg-neutral-900/50 bg-opacity-50 shadow-lg backdrop-blur-sm z-[400] md:flex flex-col py-3 ">
+      <div className="fixed w-screen hidden top-0 right-0 bg-neutral-900/50 bg-opacity-50 shadow-lg backdrop-blur-sm z-[400] md:flex flex-col py-3 font-[SpaceGroteskt]">
         <div className="absolute left-0 pl-10 text-xl z-[400]">
           <Anchor
             open={open}

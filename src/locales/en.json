@@ -3,12 +3,12 @@
     "name": "This is a wonderful day!",
     "description": "This is a wonderful day!",
     "currentdoing": "This is a wonderful day!",
-    "resume": "This is a wonderful day!",
-    "contacts": "This is a wonderful day!"
+    "resume": "Resume",
+    "contacts": "Contact"
   },
   "navbar": {
-      "resume": "This is a wonderful day!",
-      "contacts": "This is a wonderful day!"
+      "resume": "Resume",
+      "contacts": "Contact"
   },
     "aboutmetext": "This is a wonderful day!",
 
@@ -33,7 +33,7 @@
 },
 
   "education": {
-      "title": "This is a wonderful day!",
+      "title": "Education",
       "firstcourse": "This is a wonderful day!",
       "firstdesc": "This is a wonderful day!",
       "secondcourse": "This is a wonderful day!",
@@ -41,7 +41,7 @@
   },
 
   "experience": {
-      "title": "This is a wonderful day!",
+      "title": "Experience",
       "titlefirst": "This is a wonderful day!",
       "descfirst": "This is a wonderful day!",
       "titlesecond": "This is a wonderful day!",
@@ -54,7 +54,7 @@
       "title": "This is a wonderful day!",
       "name": "This is a wonderful day!",
       "message": "This is a wonderful day!",
-      "sendbutton": "This is a wonderful day!",
+      "sendbutton": "Send",
       "sidedesc": "Have a project for me? Any questions about something I've built?I'd love to hear from you, give me a shout by email or by using the form if you'd like to get in contact with me."
   }
 }

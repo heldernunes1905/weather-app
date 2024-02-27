@@ -7,7 +7,7 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div id="contacts" className="w-full bg-neutral-900  text-[#ebebeb]">
+    <div id="contacts" className="w-full bg-neutral-900  text-[#ebebeb] font-[SpaceGroteskt]">
       <div className=" px-10 flex flex-row gap-3 justify-center pt-3 pb-3">
         <p className="underline underline-offset-1">Git</p>
         <p className="underline underline-offset-1">Linked</p>

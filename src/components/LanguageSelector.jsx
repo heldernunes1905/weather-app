@@ -15,7 +15,7 @@ const LanguageSelector = () => {
 
   return (
     <div className="relative">
-      <div className="text-white flex items-center ">
+      <div className="text-white flex items-center font-[SpaceGroteskt]">
         <button onClick={() => setOpen(!open)} className="gap-2 flex flex-row">
           <LanguageOutlined />
           <div>{currentLang}</div>

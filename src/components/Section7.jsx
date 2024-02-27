@@ -46,7 +46,7 @@ function Section7() {
   };
 
   return (
-    <div className="bg-neutral-800 text-neutral-300">
+    <div className="bg-neutral-800 text-neutral-300 font-[SpaceGroteskt]">
       <div className="max-w-[1440px] mx-auto px-5 md:px-10 flex flex-col z-20 relative font-[SpaceGroteskt]  ">
         <h5 className=" uppercase font-bold text-xl  pt-10 md:pb-4">
           {t("contactme.title")}
@@ -89,7 +89,7 @@ function Section7() {
                     type="text"
                     value={nameDefault}
                     onChange={(e) => setNameDefault(e.target.value)}
-                    className="bg-[#ebebeb] py-2 px-4 text-[#333333] placeholder-black rounded-md"
+                    className="bg-neutral-700 py-2 px-4 text-neutral-300 placeholder-neutral-300 rounded-md"
                   />
                 </div>
                 <div className="flex flex-col gap-2 basis-1/3 pt-4">
@@ -101,7 +101,7 @@ function Section7() {
                     name="email"
                     value={emailDefault}
                     onChange={(e) => setEmailDefault(e.target.value)}
-                    className="bg-[#ebebeb] py-2 px-4 text-[#333333] placeholder-black rounded-md"
+                    className="bg-neutral-700 py-2 px-4 text-neutral-300 placeholder-neutral-300 rounded-md"
                   />
                 </div>
                 <div className="flex flex-col gap-2 basis-1/3 pt-4">
@@ -112,12 +112,12 @@ function Section7() {
                     name="message"
                     value={messageDefault}
                     onChange={(e) => setMessageDefault(e.target.value)}
-                    className="bg-[#ebebeb] py-2 px-4 text-[#333333] placeholder-black rounded-md"
+                    className="bg-neutral-700 py-2 px-4 text-neutral-300 placeholder-neutral-300 rounded-md"
                   />
                 </div>
                 <div className="flex flex-col gap-2 basis-1/4 mt-auto pt-3">
                   <button
-                    className="w-full min-h-[45px] border-2 text-[#333333] font-bold text-xl hover:scale-110 transition duration-500 cursor-pointer"
+                    className="w-1/5 min-h-[35px] border-2 border-orange-600 rounded-3xl bg-stone-900 text-neutral-300 font-bold text-md hover:scale-110 transition duration-500 cursor-pointer"
                     type="submit"
                     value="Send"
                   >
