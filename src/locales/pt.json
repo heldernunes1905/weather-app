@@ -1,8 +1,8 @@
 {
   "header": {
-    "name": "This is a wonderful day!",
-    "description": "This is a wonderful day!",
-    "currentdoing": "This is a wonderful day!",
+    "name": "Olá sou",
+    "description": "desc",
+    "currentdoing": "desc",
     "resume": "CV",
     "contacts": "Contato"
   },
@@ -10,51 +10,51 @@
       "resume": "CV",
       "contacts": "Contato"
   },
-    "aboutmetext": "This is a wonderful day!",
+    "aboutmetext": "desc",
 
   "aboutme": {
-      "description": "This is a wonderful day!",
-      "location": "This is a wonderful day!",
-      "interests": "This is a wonderful day!",
-      "study": "This is a wonderful day!",
-      "employment": "This is a wonderful day!"
+      "description": "desc",
+      "location": "Setubal, Portugal",
+      "interests": "Puzzles, Games, tecnologia",
+      "study": "De Montfort University",
+      "employment": "Vipa Connect"
   },
   "skills": {
-      "spoken": "This is a wonderful day!",
-      "frontend": "This is a wonderful day!",
-      "backend": "This is a wonderful day!",
-      "techstack": "This is a wonderful day!"
+      "spoken": "desc",
+      "frontend": "desc",
+      "backend": "desc",
+      "techstack": "desc"
   },
 
   "languages": {
-      "portuguese": "This is a wonderful day!",
-      "english": "This is a wonderful day!",
-      "spanish": "This is a wonderful day!"
+      "portuguese": "Português",
+      "english": "Inglês",
+      "spanish": "Espanhol"
 },
 
   "education": {
       "title": "Educação",
-      "firstcourse": "This is a wonderful day!",
-      "firstdesc": "This is a wonderful day!",
-      "secondcourse": "This is a wonderful day!",
-      "seconddesc": "This is a wonderful day!"
+      "firstcourse": "Software Engineering",
+      "firstdesc": "desc",
+      "secondcourse": "Técnico de programação informática",
+      "seconddesc": "desc"
   },
 
   "experience": {
       "title": "Experiência",
-      "titlefirst": "This is a wonderful day!",
-      "descfirst": "This is a wonderful day!",
-      "titlesecond": "This is a wonderful day!",
-      "descsecond": "This is a wonderful day!",
-      "titlethird": "This is a wonderful day!",
-      "descthird": "This is a wonderful day!"
+      "titlefirst": "Full Stack developer",
+      "descfirst": "Desc",
+      "titlesecond": "Estagiário Full Stack Developer",
+      "descsecond": "Desc",
+      "titlethird": "Estagiário Full Stack Developer",
+      "descthird": "desc"
   },
 
   "contactme": {
-      "title": "This is a wonderful day!",
-      "name": "This is a wonderful day!",
-      "message": "This is a wonderful day!",
+      "title": "Contactos",
+      "name": "Nome",
+      "message": "Mensagem",
       "sendbutton": "Enviar",
-      "sidedesc": "Have a project for me? Any questions about something I've built?I'd love to hear from you, give me a shout by email or by using the form if you'd like to get in contact with me."
+      "sidedesc": "Tem algum projeto para mim? Alguma dúvida sobre algum projeto feito por mim? Entre em contato por e-mail ou usando o formulário,"
   }
 }
