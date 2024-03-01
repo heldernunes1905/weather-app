@@ -23,11 +23,6 @@ function HomePage() {
   return (
     <div className="overflow-x-hidden">
       <Header />
-      <Section1 />
-      <Section3 />
-      {/*<Section5 />*/}
-      <Section6 />
-      <Section7 /> 
     </div>
   );
 }

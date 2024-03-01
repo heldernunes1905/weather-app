@@ -4,7 +4,15 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { DownloadOutlined, FileDownloadDoneOutlined, FileDownloadOutlined } from "@mui/icons-material";
+import {
+  DownloadOutlined,
+  FileDownloadDoneOutlined,
+  FileDownloadOutlined,
+} from "@mui/icons-material";
+import WeatherInfo from "./WeatherInfo";
+import CurrentConditions from "./CurrentConditions";
+import TodayForecast from "./TodayForecast";
+import FutureForecast from "./FutureForecast";
 
 function Anchor({ anchor, text, open, setOpen }) {
   return (
@@ -36,68 +44,31 @@ function Header() {
     }
   }, []);
   return (
-    <div className="relative max-h-screen font-[SpaceGroteskt]" id="home">
-      <img
-        className="h-[100vh] max-h-[1080px] md:origin-top md:h-100 object-cover w-full"
-        src={"/background_header_image.jpg"}
-        alt="Imagem de background"
-      ></img>
-
-      <div className="absolute text-center rounded-md  bg-gray-800/20 bg-opacity-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-[50%] shadow-lg backdrop-blur-sm">
-        <p className="text-4xl font-bold text-stone-100 sm:text-5xl lg:text-7xl">
-          {t("header.name")} me
-        </p>
-        <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-          {t("header.description")}
-        </p>
-        <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-          {t("header.currentdoing")}
-        </p>
-        <div className=" px-10 flex flex-row gap-3 justify-center text-stone-200">
-          <p className="underline underline-offset-1">Git</p>
-          <p className="underline underline-offset-1">Linked</p>
-          <p className="underline underline-offset-1">Face</p>
+    <div
+      className="relative max-h-screen font-[SpaceGroteskt] bg-black h-[100vh] "
+      id="home"
+    >
+      <div className="grid md:grid-cols-2 gap-10 px-20 ">
+        <div className="pt-10 ">
+          <div className="flex flex-col border-2 gap-5 z-40 relative h-full">
+            <WeatherInfo />
+          </div>
         </div>
-        <div className=" px-10 flex flex-row gap-3 justify-center py-3">
-          <button
-            className="px-3 rounded-3xl min-h-[35px] border-2 border-orange-600 text-[#fff] text-lg hover:scale-110 transition duration-500 cursor-pointer "
-            type="submit"
-          >
-            {t("header.resume")} <FileDownloadOutlined />
-          </button>
-          <button
-            className="px-3 rounded-3xl min-h-[35px] border-2 text-[#fff] text-lg hover:scale-110 transition duration-500 cursor-pointer"
-            type="submit"
-          >
-            <Link
-              className=""
-              to={"contacts"}
-              onClick={() => {
-                if (open) setOpen(false);
-
-                document
-                  .getElementById("contacts"?.replace("/#", ""))
-                  .scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              {t("header.contacts")}
-            </Link>
-          </button>
+        <div className="pt-10">
+          <div className="flex flex-col border-2 gap-5 z-40 relative h-full">
+            <CurrentConditions />
+          </div>
         </div>
-      </div>
-
-      <div className="absolute left-1/2  bottom-[3%] -translate-x-1/2 -translate-y-1/">
-        <Anchor
-          open={open}
-          setOpen={setOpen}
-          anchor={"/#aboutme"}
-          text={
-            <ArrowDownwardIcon
-              style={{ fontSize: "2em", color: "white" }}
-              alt="Seta para baixo"
-            />
-          }
-        />
+        <div className="pt-10">
+          <div className="flex flex-col border-2 gap-5 z-40 relative h-full">
+            <TodayForecast />
+          </div>
+        </div>
+        <div className="pt-10">
+          <div className="flex flex-col border-2 gap-5 z-40  h-full">
+            <FutureForecast />
+          </div>
+        </div>
       </div>
     </div>
   );

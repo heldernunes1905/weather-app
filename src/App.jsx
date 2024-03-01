@@ -13,9 +13,7 @@ function App() {
           path="*"
           element={
             <>
-              <NavBar />
               <HomePage />
-              <Footer />
             </>
           }
         />
