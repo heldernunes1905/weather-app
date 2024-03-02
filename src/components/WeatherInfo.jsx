@@ -9,6 +9,7 @@ import {
   FileDownloadDoneOutlined,
   FileDownloadOutlined,
 } from "@mui/icons-material";
+import { Icon, SvgIcon } from "@mui/material";
 
 function Anchor({ anchor, text, open, setOpen }) {
   return (
@@ -49,35 +50,36 @@ function WeatherInfo() {
             id="name"
             name="name"
             type="text"
-            className=" w-full bg-neutral-700 py-2 px-4 text-neutral-300 placeholder-neutral-300 rounded-md"
+            className=" w-full bg-[#202B3B] py-2 px-4 text-neutral-300 placeholder-neutral-300 rounded-md"
           />
-          <button
-            className=" min-w-[35px] ml-auto border-2 border-orange-600 rounded-3xl bg-stone-900 text-neutral-300 font-bold text-md hover:scale-110 transition duration-500 cursor-pointer"
-            type="submit"
-            value="Send"
-          ></button>
         </div>
       </form>
       <div className="">Weather (C)</div>
-      <div className=" items-center text-center">
-        <div>Image of weather</div>
-        <div>19C</div>
+      <div className="flex flex-row justify-center items-center text-center">
+        <div className="flex ">
+          <img
+            className="object-contain max-h-60"
+            src="cloudysun.svg"
+            alt="Blue sand"
+          />
+        </div>
+        <span className="text-5xl pt-2 ">19C</span>
       </div>
-      <div className="grid md:grid-cols-2">
-        <div className="pt-10">
+      <div className="grid grid-cols-2">
+        <div className="">
           <div className="flex flex-col  gap-5 z-40 relative h-full">
             <div className="flex flex-col md:flex-col gap-5 mb-2 ">
               <div className="flex flex-col gap-2 basis-1/3">
                 <div className=" items-center pr-2 border-r-2">
                   <div>city</div>
                   <div>time</div>
-                  <div>description(clouds)</div>
+                  <div>clouds</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="pt-10">
+        <div className="">
           <div className="flex flex-col  gap-5 z-40 relative h-full">
             <div className="flex flex-col md:flex-col gap-5 mb-2 ">
               <div className="flex flex-col gap-2 basis-1/3">

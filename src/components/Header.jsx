@@ -1,6 +1,3 @@
-import Logo from "../assets/symbol_logo.svg?react";
-import Lettering from "../assets/lettering.svg?react";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -43,30 +40,28 @@ function Header() {
       window.document.body.style.overflow = "auto";
     }
   }, []);
+
   return (
     <div
-      className="relative max-h-screen font-[SpaceGroteskt] bg-black h-[100vh] "
+      className="lg:max-h-screen font-[SpaceGroteskt] bg-[#0B0B1E] lg:h-[100vh]"
       id="home"
     >
-      <div className="grid md:grid-cols-2 gap-10 px-20 ">
-        <div className="pt-10 ">
-          <div className="flex flex-col border-2 gap-5 z-40 relative h-full">
+      <div className="lg:grid lg:grid-cols-2 gap-10 px-20 ">
+        <div className="lg:col-span-1 flex flex-col gap-10">
+          <div className="pt-10 flex-1">
             <WeatherInfo />
           </div>
-        </div>
-        <div className="pt-10">
-          <div className="flex flex-col border-2 gap-5 z-40 relative h-full">
-            <CurrentConditions />
-          </div>
-        </div>
-        <div className="pt-10">
-          <div className="flex flex-col border-2 gap-5 z-40 relative h-full">
+          <div className="pt-10 flex-1">
             <TodayForecast />
           </div>
         </div>
-        <div className="pt-10">
-          <div className="flex flex-col border-2 gap-5 z-40  h-full">
+
+        <div className="lg:col-span-1 flex flex-col gap-10">
+          <div className="pt-10 flex-1">
             <FutureForecast />
+          </div>
+          <div className="pt-16 flex-1">
+            <CurrentConditions />
           </div>
         </div>
       </div>

@@ -39,47 +39,48 @@ function CurrentConditions() {
       window.document.body.style.overflow = "auto";
     }
   }, []);
+
   return (
-    <div className="flex flex-col text-white gap-2">
-      <div className="flex flex-row gap-2 px-3">
+    <div className="flex flex-col text-white gap-2 bg-[#202B3B] rounded-md overflow-hidden">
+      <div className="flex pt-4 flex-row gap-2 px-3">
         <span>Today's weather conditions</span>
       </div>
-      <div className="flex">
-        <div className="flex flex-col w-1/3">
-          <div className="flex flex-col items-center justify-center h-full">
-            <div className="border-b-2 border-r-2 p-3 flex flex-col items-center">
-              <span>Wind</span>
-              <span>Description</span>
-            </div>
-            <div className=" border-r-2 p-3 flex flex-col items-center">
-              <span>Polen</span>
-              <span>Description</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col w-1/3">
-        <div className="flex flex-col items-center justify-center h-full">
-            <div className="border-b-2 border-r-2 p-3 flex flex-col items-center">
-              <span>Humidity</span>
-              <span>Description</span>
-            </div>
-            <div className=" border-r-2 p-3 flex flex-col items-center">
-              <span>Sunset</span>
-              <span>Description</span>
+      <div className="flex flex-col overflow-x-scroll">
+        <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:w-1/3">
+            <div className="md:flex flex sm:flex-row md:flex-col  items-center justify-center sm:border-r-2">
+              <div className="p-4 flex flex-col gap-3 items-center border-t-2 sm:border-none">
+                <span className="bg-[#35455e] px-3 rounded-lg">Wind</span>
+                <span>Description</span>
+              </div>
+              <div className="p-4 flex flex-col gap-3 items-center border-t-2">
+                <span className="bg-[#35455e] px-3 rounded-lg">Polen</span>
+                <span>Description</span>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className="flex flex-col w-1/3">
-        <div className="flex flex-col items-center justify-center h-full">
-            <div className="border-b-2  p-3 flex flex-col items-center">
-              <span>Pressure</span>
-              <span>Description</span>
+          <div className="flex flex-col md:w-1/3">
+            <div className="md:flex flex sm:flex-row md:flex-col  items-center justify-center sm:border-r-2">
+              <div className="p-4 flex flex-col gap-3 items-center border-t-2 sm:border-none">
+                <span className="bg-[#35455e] px-3 rounded-lg">Humidity</span>
+                <span>Description</span>
+              </div>
+              <div className="p-4 flex flex-col gap-3 items-center border-t-2">
+                <span className="bg-[#35455e] px-3 rounded-lg">Sunset</span>
+                <span>Description</span>
+              </div>
             </div>
-            <div className="  p-3 flex flex-col items-center">
-              <span>Sunrise</span>
-              <span>Description</span>
+          </div>
+          <div className="flex flex-col md:w-1/3">
+            <div className="md:flex flex sm:flex-row md:flex-col  items-center justify-center ">
+              <div className="p-4 flex flex-col gap-3 items-center border-t-2 sm:border-none">
+                <span className="bg-[#35455e] px-3 rounded-lg">Pressure</span>
+                <span>Description</span>
+              </div>
+              <div className="p-4 flex flex-col gap-3 items-center border-t-2">
+                <span className="bg-[#35455e] px-3 rounded-lg">Sunrise</span>
+                <span>Description</span>
+              </div>
             </div>
           </div>
         </div>

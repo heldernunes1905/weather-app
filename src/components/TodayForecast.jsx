@@ -40,48 +40,68 @@ function TodayForecast() {
     }
   }, []);
   return (
-    <div className="flex flex-col text-white gap-2 h-full">
-      <div className="flex flex-row gap-2 px-3">
+    <div className="flex flex-col text-white gap-2 h-full bg-[#202B3B] rounded-lg">
+      <div className="pt-3 gap-2 px-3">
         <span>Today's Forecast</span>
       </div>
-      <div className="flex flex-grow px-2 gap-3">
-        <div className="flex flex-col w-1/5">
-          <div className="flex flex-col items-center gap-5 flex-grow border-2 px-3">
+      <div className="flex flex-grow px-2 gap-3 py-3 overflow-x-scroll">
+        <div className="flex flex-col min-w-1/3">
+          <div className="flex flex-col items-center gap-2  flex-grow border-2 px-3">
             <span>Time</span>
-            <span>Symbol</span>
-            <span>Temperature</span>
+            <img
+              className="object-contain max-h-60 "
+              src="cloudysun.svg"
+              alt="Blue sand"
+            />
+            <span>19 | 32</span>
           </div>
         </div>
 
-        <div className="flex flex-col w-1/5">
-          <div className="flex flex-col items-center gap-5 flex-grow border-2 px-3">
+        <div className="flex flex-col min-w-1/3">
+          <div className="flex flex-col items-center  gap-2 flex-grow border-2 px-3">
             <span>Time</span>
-            <span>Symbol</span>
-            <span>Temperature</span>
+            <img
+              className="object-contain max-h-60 "
+              src="cloudysun.svg"
+              alt="Blue sand"
+            />
+            <span>19 | 32</span>
           </div>
         </div>
 
-        <div className="flex flex-col w-1/5">
-          <div className="flex flex-col items-center gap-5 flex-grow border-2 px-3">
+        <div className="flex flex-col min-w-1/3">
+          <div className="flex flex-col items-center gap-2 flex-grow border-2 px-3">
             <span>Time</span>
-            <span>Symbol</span>
-            <span>Temperature</span>
+            <img
+              className="object-contain max-h-60 "
+              src="cloudysun.svg"
+              alt="Blue sand"
+            />
+            <span>19 | 32</span>
           </div>
         </div>
 
-        <div className="flex flex-col w-1/5">
-          <div className="flex flex-col items-center gap-5 flex-grow border-2 px-3">
+        <div className="flex flex-col min-w-1/3">
+          <div className="flex flex-col items-center gap-2 flex-grow border-2 px-3">
             <span>Time</span>
-            <span>Symbol</span>
-            <span>Temperature</span>
+            <img
+              className="object-contain max-h-60 "
+              src="cloudysun.svg"
+              alt="Blue sand"
+            />
+            <span>19 | 32</span>
           </div>
         </div>
 
-        <div className="flex flex-col w-1/5">
-          <div className="flex flex-col items-center gap-5 flex-grow border-2 px-3">
+        <div className="flex flex-col min-w-1/3">
+          <div className="flex flex-col items-center gap-2 flex-grow border-2 px-3">
             <span>Time</span>
-            <span>Symbol</span>
-            <span>Temperature</span>
+            <img
+              className="object-contain max-h-60 "
+              src="cloudysun.svg"
+              alt="Blue sand"
+            />
+            <span>19 | 32</span>
           </div>
         </div>
       </div>
