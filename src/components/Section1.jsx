@@ -18,7 +18,7 @@ function Section1() {
             <img
               className="object-contain max-h-80 lg:max-h-full"
               src={blue_mountain}
-              alt="Blue sand"
+              alt="Weather image"
             />
           </div>
           <div className=" text-lg px-7 lg:px-0 basis-3/5 flex items-start justify-center flex-col font-[SpaceGroteskt] ">

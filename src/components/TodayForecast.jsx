@@ -28,82 +28,66 @@ function Anchor({ anchor, text, open, setOpen }) {
   );
 }
 
-function TodayForecast() {
-  const [open, setOpen] = useState();
-  const { t } = useTranslation();
+function getNextFiveHours() {
+  const currentHour = new Date().getHours();
 
-  useEffect(() => {
-    if (open) {
-      window.document.body.style.overflow = "hidden";
-    } else {
-      window.document.body.style.overflow = "auto";
-    }
-  }, []);
+  const nextFiveHours = [];
+  for (let i = 1; i <= 5; i++) {
+    const nextHour = (currentHour + i) % 24;
+    nextFiveHours.push(nextHour);
+  }
+
+  return nextFiveHours;
+}
+
+function getNextFiveForecastValues() {
+  return [
+    { temperature: "19", humidity: "32" },
+    { temperature: "20", humidity: "30" },
+    { temperature: "22", humidity: "35" },
+    { temperature: "18", humidity: "28" },
+    { temperature: "21", humidity: "33" },
+  ];
+}
+
+function getNextFiveImageValues() {
+  return [
+    { source: "cloudysun.svg" },
+    { source: "cloudysun.svg" },
+    { source: "cloudysun.svg" },
+    { source: "cloudysun.svg" },
+    { source: "cloudysun.svg" },
+  ];
+}
+
+function TodayForecast() {
+  const nextFiveHours = getNextFiveHours();
+  const forecastValues = getNextFiveForecastValues();
+  const ImageValues = getNextFiveImageValues();
+
   return (
     <div className="flex flex-col text-white gap-2 h-full bg-[#202B3B] rounded-lg">
       <div className="pt-3 gap-2 px-3">
         <span>Today's Forecast</span>
       </div>
       <div className="flex flex-grow px-2 gap-3 py-3 overflow-x-scroll">
-        <div className="flex flex-col min-w-1/3">
-          <div className="flex flex-col items-center gap-2  flex-grow border-2 px-3">
-            <span>Time</span>
-            <img
-              className="object-contain max-h-60 "
-              src="cloudysun.svg"
-              alt="Blue sand"
-            />
-            <span>19 | 32</span>
+        {nextFiveHours.map((hour, index) => (
+          <div key={index} className="flex flex-col min-w-1/3">
+            <div className="flex flex-col items-center gap-2 flex-grow border-2 px-3">
+              <span>{hour}:00</span>
+              <img
+                className="object-contain max-h-60"
+                src={ImageValues[index].source}
+                alt="Weather image"
+              />
+              <span>
+                {" "}
+                {forecastValues[index].temperature} |{" "}
+                {forecastValues[index].humidity}
+              </span>
+            </div>
           </div>
-        </div>
-
-        <div className="flex flex-col min-w-1/3">
-          <div className="flex flex-col items-center  gap-2 flex-grow border-2 px-3">
-            <span>Time</span>
-            <img
-              className="object-contain max-h-60 "
-              src="cloudysun.svg"
-              alt="Blue sand"
-            />
-            <span>19 | 32</span>
-          </div>
-        </div>
-
-        <div className="flex flex-col min-w-1/3">
-          <div className="flex flex-col items-center gap-2 flex-grow border-2 px-3">
-            <span>Time</span>
-            <img
-              className="object-contain max-h-60 "
-              src="cloudysun.svg"
-              alt="Blue sand"
-            />
-            <span>19 | 32</span>
-          </div>
-        </div>
-
-        <div className="flex flex-col min-w-1/3">
-          <div className="flex flex-col items-center gap-2 flex-grow border-2 px-3">
-            <span>Time</span>
-            <img
-              className="object-contain max-h-60 "
-              src="cloudysun.svg"
-              alt="Blue sand"
-            />
-            <span>19 | 32</span>
-          </div>
-        </div>
-
-        <div className="flex flex-col min-w-1/3">
-          <div className="flex flex-col items-center gap-2 flex-grow border-2 px-3">
-            <span>Time</span>
-            <img
-              className="object-contain max-h-60 "
-              src="cloudysun.svg"
-              alt="Blue sand"
-            />
-            <span>19 | 32</span>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

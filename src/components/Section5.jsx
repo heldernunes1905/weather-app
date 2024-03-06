@@ -61,7 +61,7 @@ function NewsArticles({ image, link, title }) {
         <img
           className="object-cover w-full h-[200px]"
           src={image}
-          alt="Blue sand"
+          alt="Weather image"
         />
         <a
           href={link}

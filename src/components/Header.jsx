@@ -41,6 +41,7 @@ function Header() {
     }
   }, []);
 
+  console.info("SECRET KEY", import.meta.env.VITE_SECRET_KEY);
   return (
     <div
       className="lg:max-h-screen font-[SpaceGroteskt] bg-[#0B0B1E] lg:h-[100vh]"

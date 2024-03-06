@@ -11,35 +11,20 @@ import {
 } from "@mui/icons-material";
 import { Icon, SvgIcon } from "@mui/material";
 
-function Anchor({ anchor, text, open, setOpen }) {
-  return (
-    <Link
-      className="text-3xl font-bold text-[#333333] uppercase hover:underline font-[SpaceGroteskt]"
-      to={anchor}
-      onClick={() => {
-        if (open) setOpen(false);
-
-        document
-          .getElementById(anchor?.replace("/#", ""))
-          .scrollIntoView({ behavior: "smooth" });
-      }}
-    >
-      {text}
-    </Link>
-  );
-}
-
 function WeatherInfo() {
-  const [open, setOpen] = useState();
-  const { t } = useTranslation();
+  const descriptions = [
+    {
+      imgSrc: "cloudysun.svg",
+      currentTemp: "18",
+      city: "Funchal",
+      time: "14:18",
+      weather: "Clouds",
+      feelsLike: "19",
+      minTemp: "12",
+      maxTemp: "25",
+    },
+  ];
 
-  useEffect(() => {
-    if (open) {
-      window.document.body.style.overflow = "hidden";
-    } else {
-      window.document.body.style.overflow = "auto";
-    }
-  }, []);
   return (
     <div className="flex flex-col text-white gap-2 basis-1/3">
       <form>
@@ -50,7 +35,7 @@ function WeatherInfo() {
             id="name"
             name="name"
             type="text"
-            className=" w-full bg-[#202B3B] py-2 px-4 text-neutral-300 placeholder-neutral-300 rounded-md"
+            className=" w-full bg-[#202B3B] py-2 px-4 text-neutral-300 placeholder-neutral-300 rounded-lg"
           />
         </div>
       </form>
@@ -59,11 +44,11 @@ function WeatherInfo() {
         <div className="flex ">
           <img
             className="object-contain max-h-60"
-            src="cloudysun.svg"
-            alt="Blue sand"
+            src={descriptions[0].imgSrc}
+            alt="Weather Image"
           />
         </div>
-        <span className="text-5xl pt-2 ">19C</span>
+        <span className="text-5xl pt-2 ">{descriptions[0].currentTemp}°C</span>
       </div>
       <div className="grid grid-cols-2">
         <div className="">
@@ -71,9 +56,9 @@ function WeatherInfo() {
             <div className="flex flex-col md:flex-col gap-5 mb-2 ">
               <div className="flex flex-col gap-2 basis-1/3">
                 <div className=" items-center pr-2 border-r-2">
-                  <div>city</div>
-                  <div>time</div>
-                  <div>clouds</div>
+                  <div>{descriptions[0].city}</div>
+                  <div>{descriptions[0].time}</div>
+                  <div>{descriptions[0].weather}</div>
                 </div>
               </div>
             </div>
@@ -84,9 +69,9 @@ function WeatherInfo() {
             <div className="flex flex-col md:flex-col gap-5 mb-2 ">
               <div className="flex flex-col gap-2 basis-1/3">
                 <div className=" items-center text-right pr-2">
-                  <div>feels like: 19</div>
-                  <div>min: 19</div>
-                  <div>max: 19</div>
+                  <div>feels like: {descriptions[0].feelsLike}°C</div>
+                  <div>min: {descriptions[0].minTemp}°C</div>
+                  <div>max: {descriptions[0].maxTemp}°C</div>
                 </div>
               </div>
             </div>
