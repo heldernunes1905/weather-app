@@ -14,8 +14,7 @@ function App() {
           path="*"
           element={
             <>
-              {/**<HomePage /> */}
-              <Weather />
+              <HomePage />
             </>
           }
         />

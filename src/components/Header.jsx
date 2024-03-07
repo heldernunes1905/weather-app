@@ -11,37 +11,29 @@ import CurrentConditions from "./CurrentConditions";
 import TodayForecast from "./TodayForecast";
 import FutureForecast from "./FutureForecast";
 
-function Anchor({ anchor, text, open, setOpen }) {
-  return (
-    <Link
-      className="text-3xl font-bold text-[#333333] uppercase hover:underline font-[SpaceGroteskt]"
-      to={anchor}
-      onClick={() => {
-        if (open) setOpen(false);
+function currentTime(time) {
+  let timezoneOffset = time;
 
-        document
-          .getElementById(anchor?.replace("/#", ""))
-          .scrollIntoView({ behavior: "smooth" });
-      }}
-    >
-      {text}
-    </Link>
+  const currentTimeUTC = new Date();
+
+  const adjustedTimeUTC = new Date(
+    currentTimeUTC.getTime() + timezoneOffset * 1000
   );
+  return adjustedTimeUTC.toISOString().slice(11, 16);
 }
 
 function Header() {
-  const [open, setOpen] = useState();
-  const { t } = useTranslation();
+  const [weatherData, setWeatherData] = useState(null);
+  const [localTime, setLocalTime] = useState(null);
 
-  useEffect(() => {
-    if (open) {
-      window.document.body.style.overflow = "hidden";
-    } else {
-      window.document.body.style.overflow = "auto";
-    }
-  }, []);
+  const handleWeatherData = (weatherData) => {
+    setWeatherData(weatherData);
 
-  console.info("SECRET KEY", import.meta.env.VITE_SECRET_KEY);
+    setLocalTime(currentTime(weatherData.timezone_offset));
+
+    console.log(weatherData);
+  };
+
   return (
     <div
       className="lg:max-h-screen font-[SpaceGroteskt] bg-[#0B0B1E] lg:h-[100vh]"
@@ -50,16 +42,19 @@ function Header() {
       <div className="lg:grid lg:grid-cols-2 gap-10 px-20 ">
         <div className="lg:col-span-1 flex flex-col gap-10">
           <div className="pt-10 flex-1">
-            <WeatherInfo />
+            <WeatherInfo
+              onWeatherData={handleWeatherData}
+              adjustedTime={localTime}
+            />
           </div>
           <div className="pt-10 flex-1">
-            <TodayForecast />
+            <TodayForecast onWeatherData={weatherData} />
           </div>
         </div>
 
         <div className="lg:col-span-1 flex flex-col gap-10">
           <div className="pt-10 flex-1">
-            <FutureForecast />
+            <FutureForecast onWeatherData={weatherData} />
           </div>
           <div className="pt-16 flex-1">
             <CurrentConditions />

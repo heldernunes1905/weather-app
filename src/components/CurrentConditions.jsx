@@ -11,8 +11,14 @@ import {
 } from "@mui/icons-material";
 
 function CurrentConditions() {
-  const descriptions = ["Description WInd", "Description Polen", "Description Humidity", "Description Sunset", "Description Pressure","Description Sunrise"];
-
+  const descriptions = [
+    "Description WInd",
+    "Description Polen",
+    "Description Humidity",
+    "Description Sunset",
+    "Description Pressure",
+    "Description Sunrise",
+  ];
 
   return (
     <div className="flex flex-col text-white gap-2 bg-[#202B3B] rounded-lg overflow-hidden">

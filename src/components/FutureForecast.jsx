@@ -31,13 +31,38 @@ function getNextFiveDays() {
   return nextFiveDays;
 }
 
-function getNextFiveForecastValues() {
+function getNextFiveForecastValues(weather) {
   return [
-    { temperature: "19", humidity: "32" },
-    { temperature: "20", humidity: "30" },
-    { temperature: "22", humidity: "35" },
-    { temperature: "18", humidity: "28" },
-    { temperature: "21", humidity: "33" },
+    {
+      mintemp: Math.round(weather?.daily[1].temp.min ?? 0),
+      maxtemp: Math.round(weather?.daily[1].temp.max ?? 0),
+    },
+    {
+      mintemp: Math.round(weather?.daily[2].temp.min ?? 0),
+      maxtemp: Math.round(weather?.daily[2].temp.max ?? 0),
+    },
+    {
+      mintemp: Math.round(weather?.daily[3].temp.min ?? 0),
+      maxtemp: Math.round(weather?.daily[3].temp.max ?? 0),
+    },
+    {
+      mintemp: Math.round(weather?.daily[4].temp.min ?? 0),
+      maxtemp: Math.round(weather?.daily[4].temp.max ?? 0),
+    },
+    {
+      mintemp: Math.round(weather?.daily[5].temp.min ?? 0),
+      maxtemp: Math.round(weather?.daily[5].temp.max ?? 0),
+    },
+  ];
+}
+
+function getNextFiveForecastWeather(weather) {
+  return [
+    { weatherInfo: weather?.daily[1].weather[0].description },
+    { weatherInfo: weather?.daily[2].weather[0].description },
+    { weatherInfo: weather?.daily[3].weather[0].description },
+    { weatherInfo: weather?.daily[4].weather[0].description },
+    { weatherInfo: weather?.daily[5].weather[0].description },
   ];
 }
 
@@ -51,11 +76,11 @@ function getNextFiveImageValues() {
   ];
 }
 
-function FutureForecast() {
+function FutureForecast({ onWeatherData }) {
   const nextFiveDays = getNextFiveDays();
-  const forecastValues = getNextFiveForecastValues();
-  const ImageValues = getNextFiveImageValues();
-
+  const forecastValues = getNextFiveForecastValues(onWeatherData);
+  const weatherValues = getNextFiveForecastWeather(onWeatherData);
+  const ImageValues = getNextFiveImageValues(getNextFiveForecastWeather);
   return (
     <div className="text-white gap-2 h-full bg-[#202B3B] rounded-lg">
       <div className="pt-3 pb-2 flex-col gap-2 px-3">
@@ -78,10 +103,12 @@ function FutureForecast() {
               />
             </div>
             <div className="w-1/2 flex">
-              <span className="hidden sm:flex">Clouds</span>
+              <span className="hidden sm:flex">
+                {weatherValues[index].weatherInfo}
+              </span>
               <span className="ml-auto">
-                {forecastValues[index].temperature} |{" "}
-                {forecastValues[index].humidity}
+                {forecastValues[index].mintemp} |{" "}
+                {forecastValues[index].maxtemp}
               </span>
             </div>
           </div>

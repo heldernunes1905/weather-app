@@ -6,13 +6,23 @@ const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
 
   const fetchData = async () => {
-    
     try {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=199023c4fb4dc2be4f6ae2b9d23f12bd`
+      const geoResponse = await axios.get(
+        `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=0b89845a1b21c088f2a1e1647bfbcba1`
       );
-      setWeatherData(response.data);
-      console.log(response.data); //You can see all the weather data in console log
+
+      if (geoResponse.data.length === 0) {
+        throw new Error("City not found");
+      }
+
+      const { lat, lon } = geoResponse.data[0];
+
+      const weatherResponse = await axios.get(
+        `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&appid=0b89845a1b21c088f2a1e1647bfbcba1`
+      );
+
+      setWeatherData(weatherResponse.data);
+      console.log(weatherResponse.data); // You can see all the weather data in console log
     } catch (error) {
       console.error(error);
     }
@@ -45,12 +55,7 @@ const Weather = () => {
       {weatherData ? (
         <>
           <h2>{weatherData.name}</h2>
-          <p>Temperature: {weatherData.main.temp}°C</p>
-          <p>Description: {weatherData.weather[0].description}</p>
-          <p>Feels like : {weatherData.main.feels_like}°C</p>
-          <p>Humidity : {weatherData.main.humidity}%</p>
-          <p>Pressure : {weatherData.main.pressure}</p>
-          <p>Wind Speed : {weatherData.wind.speed}m/s</p>
+          <p>Temperature: {weatherData.current.temp}°C</p>
         </>
       ) : (
         <p>Loading weather data...</p>
