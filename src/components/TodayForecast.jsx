@@ -32,7 +32,7 @@ function getNextFiveHours() {
   const currentHour = new Date().getHours();
 
   const nextFiveHours = [];
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 10; i++) {
     const nextHour = (currentHour + i) % 24;
     nextFiveHours.push(nextHour);
   }
@@ -40,30 +40,83 @@ function getNextFiveHours() {
   return nextFiveHours;
 }
 
-function getNextFiveForecastValues() {
+function getNextFiveForecastValues(weather) {
   return [
-    { temperature: "19", humidity: "32" },
-    { temperature: "20", humidity: "30" },
-    { temperature: "22", humidity: "35" },
-    { temperature: "18", humidity: "28" },
-    { temperature: "21", humidity: "33" },
+    {
+      mintemp: Math.round(weather?.hourly[1].temp ?? 0),
+    },
+    {
+      mintemp: Math.round(weather?.hourly[2].temp ?? 0),
+    },
+    {
+      mintemp: Math.round(weather?.hourly[3].temp ?? 0),
+    },
+    {
+      mintemp: Math.round(weather?.hourly[4].temp ?? 0),
+    },
+    {
+      mintemp: Math.round(weather?.hourly[5].temp ?? 0),
+    },
+    {
+      mintemp: Math.round(weather?.hourly[6].temp ?? 0),
+    },
+    {
+      mintemp: Math.round(weather?.hourly[7].temp ?? 0),
+    },
+    {
+      mintemp: Math.round(weather?.hourly[8].temp ?? 0),
+    },
+    {
+      mintemp: Math.round(weather?.hourly[9].temp ?? 0),
+    },
+    {
+      mintemp: Math.round(weather?.hourly[10].temp ?? 0),
+    },
+  ];
+}
+function getNextFiveImageValues(weatherData) {
+  return [
+    { source: getImageForWeather(weatherData?.hourly[1].weather[0].main) },
+    { source: getImageForWeather(weatherData?.hourly[2].weather[0].main) },
+    { source: getImageForWeather(weatherData?.hourly[3].weather[0].main) },
+    { source: getImageForWeather(weatherData?.hourly[4].weather[0].main) },
+    { source: getImageForWeather(weatherData?.hourly[5].weather[0].main) },
+    { source: getImageForWeather(weatherData?.hourly[6].weather[0].main) },
+    { source: getImageForWeather(weatherData?.hourly[7].weather[0].main) },
+    { source: getImageForWeather(weatherData?.hourly[8].weather[0].main) },
+    { source: getImageForWeather(weatherData?.hourly[9].weather[0].main) },
+    { source: getImageForWeather(weatherData?.hourly[10].weather[0].main) },
+
   ];
 }
 
-function getNextFiveImageValues() {
-  return [
-    { source: "cloudysun.svg" },
-    { source: "cloudysun.svg" },
-    { source: "cloudysun.svg" },
-    { source: "cloudysun.svg" },
-    { source: "cloudysun.svg" },
-  ];
+function getImageForWeather(weatherData) {
+  switch (weatherData) {
+    case "Rain":
+      return "rain.svg";
+      break;
+    case "Snow":
+      return "hail.svg";
+      break;
+    case "Clouds":
+      return "cloud.svg";
+      break;
+    case "Sun":
+      return "sun.svg";
+      break;
+    case "Clear":
+      return "night.svg";
+      break;
+    default:
+      return "default.svg"; // Return a default image for unknown weather
+      break;
+  }
 }
 
-function TodayForecast() {
+function TodayForecast({ onWeatherData }) {
   const nextFiveHours = getNextFiveHours();
-  const forecastValues = getNextFiveForecastValues();
-  const ImageValues = getNextFiveImageValues();
+  const forecastValues = getNextFiveForecastValues(onWeatherData);
+  const ImageValues = getNextFiveImageValues(onWeatherData);
 
   return (
     <div className="flex flex-col text-white gap-2 h-full bg-[#202B3B] rounded-lg">
@@ -72,18 +125,17 @@ function TodayForecast() {
       </div>
       <div className="flex flex-grow px-2 gap-3 py-3 overflow-x-scroll">
         {nextFiveHours.map((hour, index) => (
-          <div key={index} className="flex flex-col min-w-1/3">
-            <div className="flex flex-col items-center gap-2 flex-grow border-2 px-3">
+          <div key={index} className="flex flex-col min-w-1/2">
+            <div className="flex flex-col items-center gap-2 justify-center flex-grow border-2 sm:px-3">
               <span>{hour}:00</span>
               <img
-                className="object-contain max-h-60"
+                className="object-contain max-h-20"
                 src={ImageValues[index].source}
                 alt="Weather image"
               />
               <span>
                 {" "}
-                {forecastValues[index].temperature} |{" "}
-                {forecastValues[index].humidity}
+                {forecastValues[index].mintemp}°C
               </span>
             </div>
           </div>

@@ -22,7 +22,6 @@ const Weather = () => {
       );
 
       setWeatherData(weatherResponse.data);
-      console.log(weatherResponse.data); // You can see all the weather data in console log
     } catch (error) {
       console.error(error);
     }

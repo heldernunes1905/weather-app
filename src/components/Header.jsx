@@ -36,28 +36,30 @@ function Header() {
 
   return (
     <div
-      className="lg:max-h-screen font-[SpaceGroteskt] bg-[#0B0B1E] lg:h-[100vh]"
+      className="lg:max-h-screen font-[SpaceGroteskt] bg-[#0B0B1E] lg:h-[100vh] pb-5"
       id="home"
     >
-      <div className="lg:grid lg:grid-cols-2 gap-10 px-20 ">
-        <div className="lg:col-span-1 flex flex-col gap-10">
-          <div className="pt-10 flex-1">
-            <WeatherInfo
-              onWeatherData={handleWeatherData}
-              adjustedTime={localTime}
-            />
+      <div className="md:pt-20">
+        <div className="lg:grid lg:grid-cols-2 gap-10 px-20 ">
+          <div className="lg:col-span-1 flex flex-col gap-10">
+            <div className="pt-10 flex-1">
+              <WeatherInfo
+                onWeatherData={handleWeatherData}
+                adjustedTime={localTime}
+              />
+            </div>
+            <div className="pt-10 lg:pt-40  flex-1">
+              <TodayForecast onWeatherData={weatherData} />
+            </div>
           </div>
-          <div className="pt-10 flex-1">
-            <TodayForecast onWeatherData={weatherData} />
-          </div>
-        </div>
 
-        <div className="lg:col-span-1 flex flex-col gap-10">
-          <div className="pt-10 flex-1">
-            <FutureForecast onWeatherData={weatherData} />
-          </div>
-          <div className="pt-16 flex-1">
-            <CurrentConditions />
+          <div className="lg:col-span-1 flex flex-col gap-10">
+            <div className="pt-10 flex-1">
+              <FutureForecast onWeatherData={weatherData} />
+            </div>
+            <div className="pt-16 flex-1">
+              <CurrentConditions onWeatherData={weatherData} />
+            </div>
           </div>
         </div>
       </div>

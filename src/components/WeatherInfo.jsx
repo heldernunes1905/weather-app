@@ -13,7 +13,7 @@ import { Icon, SvgIcon } from "@mui/material";
 import axios from "axios";
 
 function WeatherInfo({ onWeatherData, adjustedTime }) {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("London");
   const [weatherData, setWeatherData] = useState(null);
   const [currentCity, setCurrentCity] = useState();
 
@@ -63,9 +63,32 @@ function WeatherInfo({ onWeatherData, adjustedTime }) {
     fetchData();
   };
 
+  function getImageForWeather(weatherData) {
+    switch (weatherData) {
+      case "Rain":
+        return "rain.svg";
+        break;
+      case "Snow":
+        return "hail.svg";
+        break;
+      case "Clouds":
+        return "cloud.svg";
+        break;
+      case "Sun":
+        return "sun.svg";
+        break;
+      case "Clear":
+        return "night.svg";
+        break;
+      default:
+        return "default.svg"; // Return a default image for unknown weather
+        break;
+    }
+  }
+
   const descriptions = [
     {
-      imgSrc: "cloudysun.svg",
+      imgSrc: getImageForWeather(weatherData?.current.weather[0].main),
       currentTemp: Math.round(weatherData?.current.temp ?? 0),
       city: currentCity ?? "No city selected",
       time: adjustedTime ?? time,
@@ -98,7 +121,7 @@ function WeatherInfo({ onWeatherData, adjustedTime }) {
       <div className="flex flex-row justify-center items-center text-center">
         <div className="flex ">
           <img
-            className="object-contain max-h-60"
+            className="object-contain max-h-40"
             src={descriptions[0].imgSrc}
             alt="Weather Image"
           />

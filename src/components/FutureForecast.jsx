@@ -66,21 +66,44 @@ function getNextFiveForecastWeather(weather) {
   ];
 }
 
-function getNextFiveImageValues() {
+function getNextFiveImageValues(weatherData) {
   return [
-    { source: "cloudysun.svg" },
-    { source: "cloudysun.svg" },
-    { source: "cloudysun.svg" },
-    { source: "cloudysun.svg" },
-    { source: "cloudysun.svg" },
+    { source: getImageForWeather(weatherData?.daily[1].weather[0].main) },
+    { source: getImageForWeather(weatherData?.daily[2].weather[0].main) },
+    { source: getImageForWeather(weatherData?.daily[3].weather[0].main) },
+    { source: getImageForWeather(weatherData?.daily[4].weather[0].main) },
+    { source: getImageForWeather(weatherData?.daily[5].weather[0].main) },
   ];
+}
+
+function getImageForWeather(weatherData) {
+  switch (weatherData) {
+    case "Rain":
+      return "rain.svg";
+      break;
+    case "Snow":
+      return "hail.svg";
+      break;
+    case "Clouds":
+      return "cloud.svg";
+      break;
+    case "Sun":
+      return "sun.svg";
+      break;
+    case "Clear":
+      return "night.svg";
+      break;
+    default:
+      return "default.svg"; // Return a default image for unknown weather
+      break;
+  }
 }
 
 function FutureForecast({ onWeatherData }) {
   const nextFiveDays = getNextFiveDays();
   const forecastValues = getNextFiveForecastValues(onWeatherData);
   const weatherValues = getNextFiveForecastWeather(onWeatherData);
-  const ImageValues = getNextFiveImageValues(getNextFiveForecastWeather);
+  const ImageValues = getNextFiveImageValues(onWeatherData);
   return (
     <div className="text-white gap-2 h-full bg-[#202B3B] rounded-lg">
       <div className="pt-3 pb-2 flex-col gap-2 px-3">
@@ -97,7 +120,7 @@ function FutureForecast({ onWeatherData }) {
                 <span className="bg-[#35455e] px-3 rounded-lg">{day}</span>
               </div>
               <img
-                className="object-contain max-h-[3rem] ml-auto"
+                className="object-contain max-h-[2rem] ml-auto"
                 src={ImageValues[index].source}
                 alt="Weather image"
               />
